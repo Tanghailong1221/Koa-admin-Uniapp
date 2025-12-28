@@ -1,0 +1,87 @@
+{
+    "pages": [
+        {
+            "path": "pages/login/index",
+            "style": {
+                "navigationBarTitleText": "登录",
+                "navigationStyle": "custom"
+            }
+        },
+        {
+            "path": "pages/home/index",
+            "style": {
+                "navigationBarTitleText": "首页",
+                "navigationStyle": "custom"
+            }
+        },
+        {
+            "path": "pages/profile/index",
+            "style": {
+                "navigationBarTitleText": "个人中心"
+            }
+        },
+        {
+            "path": "pages/dynamic/index",
+            "style": {
+                "navigationBarTitleText": "动态页面"
+            }
+        },
+        {
+            "path": "pages/index/index",
+            "style": {
+                "navigationBarTitleText": "MES/WMS"
+            }
+        }
+    ],
+    "globalStyle": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "MES/WMS",
+        "navigationBarBackgroundColor": "#667eea",
+        "backgroundColor": "#f5f7fa",
+        "backgroundTextStyle": "dark"
+    },
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#667eea",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/home/index",
+                "text": "首页",
+                "iconPath": "static/tabbar/home.png",
+                "selectedIconPath": "static/tabbar/home-active.png"
+            },
+            {
+                "pagePath": "pages/profile/index",
+                "text": "我的",
+                "iconPath": "static/tabbar/profile.png",
+                "selectedIconPath": "static/tabbar/profile-active.png"
+            }
+        ]
+    },
+    "easycom": {
+        "autoscan": true,
+        "custom": {
+            "^m-(.*)": "@/components/base/M$1.vue",
+            "^mb-(.*)": "@/components/business/M$1.vue"
+        }
+    },
+    "condition": {
+        "current": 0,
+        "list": [
+            {
+                "name": "登录页",
+                "path": "pages/login/index"
+            },
+            {
+                "name": "首页",
+                "path": "pages/home/index"
+            },
+            {
+                "name": "个人中心",
+                "path": "pages/profile/index"
+            }
+        ]
+    }
+}

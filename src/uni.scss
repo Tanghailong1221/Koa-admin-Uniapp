@@ -1,0 +1,163 @@
+/**
+ * MES/WMS 移动端全局样式变量
+ * 基于 uni-app 内置变量扩展
+ */
+
+/* ==================== 主题色 ==================== */
+
+/* 主色调 */
+$primary-color: #667eea;
+$primary-color-light: #8b9ff5;
+$primary-color-dark: #4c5fd5;
+
+/* 渐变色 */
+$gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$gradient-success: linear-gradient(135deg, #52c41a 0%, #73d13d 100%);
+$gradient-warning: linear-gradient(135deg, #fa8c16 0%, #ffa940 100%);
+$gradient-danger: linear-gradient(135deg, #ff4d4f 0%, #ff7875 100%);
+
+/* 行为相关颜色 */
+$uni-color-primary: $primary-color;
+$uni-color-success: #52c41a;
+$uni-color-warning: #fa8c16;
+$uni-color-error: #ff4d4f;
+$uni-color-info: #1890ff;
+
+/* ==================== 文字颜色 ==================== */
+
+$uni-text-color: #333333;
+$uni-text-color-inverse: #ffffff;
+$uni-text-color-grey: #999999;
+$uni-text-color-placeholder: #cccccc;
+$uni-text-color-disable: #c0c0c0;
+
+/* 扩展文字颜色 */
+$text-color-secondary: #666666;
+$text-color-light: #999999;
+$text-color-link: $primary-color;
+
+/* ==================== 背景颜色 ==================== */
+
+$uni-bg-color: #ffffff;
+$uni-bg-color-grey: #f5f7fa;
+$uni-bg-color-hover: #f1f1f1;
+$uni-bg-color-mask: rgba(0, 0, 0, 0.5);
+
+/* 扩展背景颜色 */
+$bg-color-page: #f5f7fa;
+$bg-color-card: #ffffff;
+$bg-color-input: #f5f7fa;
+
+/* ==================== 边框颜色 ==================== */
+
+$uni-border-color: #e8e8e8;
+$border-color-light: #f0f0f0;
+$border-color-dark: #d9d9d9;
+
+/* ==================== 尺寸变量 ==================== */
+
+/* 文字尺寸 */
+$uni-font-size-sm: 24rpx;
+$uni-font-size-base: 28rpx;
+$uni-font-size-lg: 32rpx;
+$font-size-xl: 36rpx;
+$font-size-xxl: 40rpx;
+$font-size-title: 48rpx;
+
+/* 图片尺寸 */
+$uni-img-size-sm: 40rpx;
+$uni-img-size-base: 52rpx;
+$uni-img-size-lg: 80rpx;
+
+/* 圆角 */
+$uni-border-radius-sm: 4rpx;
+$uni-border-radius-base: 8rpx;
+$uni-border-radius-lg: 16rpx;
+$border-radius-xl: 24rpx;
+$uni-border-radius-circle: 50%;
+
+/* 间距 */
+$uni-spacing-row-sm: 10rpx;
+$uni-spacing-row-base: 20rpx;
+$uni-spacing-row-lg: 30rpx;
+$spacing-row-xl: 40rpx;
+
+$uni-spacing-col-sm: 8rpx;
+$uni-spacing-col-base: 16rpx;
+$uni-spacing-col-lg: 24rpx;
+$spacing-col-xl: 32rpx;
+
+/* ==================== 组件尺寸 ==================== */
+
+/* 按钮高度 */
+$button-height-sm: 64rpx;
+$button-height-base: 88rpx;
+$button-height-lg: 96rpx;
+
+/* 输入框高度 */
+$input-height-sm: 64rpx;
+$input-height-base: 88rpx;
+$input-height-lg: 96rpx;
+
+/* 卡片内边距 */
+$card-padding-sm: 20rpx;
+$card-padding-base: 32rpx;
+$card-padding-lg: 40rpx;
+
+/* ==================== 阴影 ==================== */
+
+$shadow-sm: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+$shadow-base: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 8rpx 40rpx rgba(0, 0, 0, 0.12);
+
+/* ==================== 动画 ==================== */
+
+$transition-fast: 0.15s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+/* ==================== 透明度 ==================== */
+
+$uni-opacity-disabled: 0.4;
+$opacity-hover: 0.8;
+
+/* ==================== 设备适配 ==================== */
+
+/* PDA 专用 - 更大的触控区域 */
+$pda-touch-min-size: 88rpx;
+$pda-font-size-base: 32rpx;
+$pda-spacing-base: 24rpx;
+
+/* 平板专用 */
+$tablet-max-width: 750rpx;
+$tablet-content-padding: 48rpx;
+
+/* ==================== 状态颜色 ==================== */
+
+/* 工单状态 */
+$status-pending: #fa8c16;
+$status-processing: #1890ff;
+$status-completed: #52c41a;
+$status-closed: #999999;
+$status-cancelled: #ff4d4f;
+
+/* 设备状态 */
+$equipment-running: #52c41a;
+$equipment-idle: #1890ff;
+$equipment-maintenance: #fa8c16;
+$equipment-fault: #ff4d4f;
+$equipment-offline: #999999;
+
+/* 异常状态 */
+$exception-pending: #ff4d4f;
+$exception-processing: #fa8c16;
+$exception-resolved: #52c41a;
+
+/* ==================== 文章场景 ==================== */
+
+$uni-color-title: #2c405a;
+$uni-font-size-title: 40rpx;
+$uni-color-subtitle: #555555;
+$uni-font-size-subtitle: 36rpx;
+$uni-color-paragraph: #3f536e;
+$uni-font-size-paragraph: 30rpx;

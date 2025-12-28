@@ -22,8 +22,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
-
 export interface MButtonProps {
     /** 按钮类型 */
     type?: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'default'

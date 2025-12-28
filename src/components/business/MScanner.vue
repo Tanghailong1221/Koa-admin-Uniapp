@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, defineEmits, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 export interface MScannerProps {
     /** 绑定值 */

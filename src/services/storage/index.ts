@@ -219,7 +219,7 @@ export const keys = (): string[] => {
 }
 
 /** 存储服务导出 */
-export const storage = {
+export const storageService = {
     get,
     set,
     remove,
@@ -235,4 +235,7 @@ export const storage = {
     deserialize,
 }
 
-export default storage
+// 兼容旧名称
+export const storage = storageService
+
+export default storageService

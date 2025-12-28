@@ -66,6 +66,7 @@ import { ref, reactive, computed, onMounted } from 'vue'
 import { useAuth } from '@/composables/useAuth'
 import { authService } from '@/services/auth'
 import { storageService } from '@/services/storage'
+import { useUserStore } from '@/store/modules/user'
 
 /** 登录表单 */
 interface LoginForm {
@@ -75,6 +76,7 @@ interface LoginForm {
 }
 
 const { isLoggedIn } = useAuth()
+const userStore = useUserStore()
 
 // 表单数据
 const loginForm = reactive<LoginForm>({
@@ -101,10 +103,10 @@ const USERNAME_KEY = 'login_username'
  * 加载记住的用户名
  */
 const loadRememberedUser = () => {
-    const remembered = storageService.get<boolean>(REMEMBER_KEY)
+    const remembered = storageService.getSync<boolean>(REMEMBER_KEY)
     if (remembered) {
         loginForm.rememberMe = true
-        const username = storageService.get<string>(USERNAME_KEY)
+        const username = storageService.getSync<string>(USERNAME_KEY)
         if (username) {
             loginForm.username = username
         }
@@ -116,11 +118,11 @@ const loadRememberedUser = () => {
  */
 const saveRememberedUser = () => {
     if (loginForm.rememberMe) {
-        storageService.set(REMEMBER_KEY, true)
-        storageService.set(USERNAME_KEY, loginForm.username)
+        storageService.setSync(REMEMBER_KEY, true)
+        storageService.setSync(USERNAME_KEY, loginForm.username)
     } else {
-        storageService.remove(REMEMBER_KEY)
-        storageService.remove(USERNAME_KEY)
+        storageService.removeSync(REMEMBER_KEY)
+        storageService.removeSync(USERNAME_KEY)
     }
 }
 
@@ -135,8 +137,35 @@ const handleLogin = async () => {
     loading.value = true
     errorMessage.value = ''
 
+    // 开发模式下，允许使用演示账号登录
+    if (loginForm.username === 'demo' && loginForm.password === 'demo') {
+        // 模拟登录成功
+        userStore.setUserInfo({
+            id: 'demo-user',
+            username: 'demo',
+            realName: '演示用户',
+            roles: ['operator'],
+            permissions: ['*'],
+            token: 'demo-token',
+            refreshToken: 'demo-refresh-token',
+            tokenExpireTime: Date.now() + 24 * 60 * 60 * 1000, // 24小时后过期
+        })
+
+        saveRememberedUser()
+        loading.value = false
+
+        uni.reLaunch({
+            url: '/pages/home/index',
+        })
+        return
+    }
+
     try {
-        await authService.login(loginForm.username, loginForm.password)
+        await authService.login({
+            username: loginForm.username,
+            password: loginForm.password,
+            remember: loginForm.rememberMe,
+        })
 
         // 保存记住的用户名
         saveRememberedUser()
@@ -146,7 +175,7 @@ const handleLogin = async () => {
             url: '/pages/home/index',
         })
     } catch (e) {
-        errorMessage.value = e instanceof Error ? e.message : '登录失败，请重试'
+        errorMessage.value = e instanceof Error ? e.message : '登录失败，请检查网络连接'
     } finally {
         loading.value = false
     }
